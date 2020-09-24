@@ -2,6 +2,7 @@ package ru.nickb.cryptotop.activities
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -54,7 +55,7 @@ class ChartActivity : MvpAppCompatActivity(), LatestChartView, OnChartValueSelec
         val ath = intent?.getFloatExtra("ath", 0.0f)
         val athChangePercentage = intent?.getFloatExtra("athChangePercentage", 0.0f)
         val circulatingSupply = intent?.getDoubleExtra("circulatingSupply", 0.0)
-        val totalSupply = intent?.getLongExtra("totalSupply", 0)
+        val totalSupply = intent?.getFloatExtra("totalSupply", 0.0f)
         val image = intent.getStringExtra("image")
 
         Glide.with(this).load(image).into(ivCurrencyDetailIcon)
@@ -105,6 +106,7 @@ class ChartActivity : MvpAppCompatActivity(), LatestChartView, OnChartValueSelec
     }
 
     override fun showErrorMessage(error: String?) {
+        Log.i("Network Error", error)
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 

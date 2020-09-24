@@ -36,7 +36,7 @@ class CurrenciesAdapter : BaseAdapter<CurrenciesAdapter.CurrencyViewHolder>() {
         var ath: Float = 0.0f
         var athChangePercentage: Float = 0.0f
         var circulatingSupply: Double = 0.0
-        var totalSupply: Long = 0
+        var totalSupply: Float = 0.0f
 
 
         init {
@@ -102,7 +102,7 @@ class CurrenciesAdapter : BaseAdapter<CurrenciesAdapter.CurrencyViewHolder>() {
         val priceChangePercentage24h: Float,
         val marketCapChangePercentage24h: Float,
         val circulatingSupply: Double,
-        val totalSupply: Long,
+        val totalSupply: Float,
         val ath: Float,
         val athChangePercentage: Float
 

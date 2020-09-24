@@ -1,6 +1,7 @@
 package ru.nickb.cryptotop.mvp.presenter
 
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,6 +30,7 @@ class CurrenciesPresenter : BasePresenter<CurrenciesView>() {
   fun makeList() {
         viewState.showProgress()
 
+
         //подписываемся на поток данных
         subscribe(geckoApi.getCoinMarket()
 
@@ -43,6 +45,7 @@ class CurrenciesPresenter : BasePresenter<CurrenciesView>() {
 
             //наполняем поля элемента списка для адаптера
             .doOnNext {
+                Log.i("totalsupply", it.id.toString())
                 viewState.addCurrency(
                 CurrenciesAdapter.Currency(
                         it.id,
